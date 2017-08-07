@@ -363,10 +363,87 @@
 
 
   
+    <article id="post-3分钟理解Objective-c异步读写文件原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/">3分钟理解Objective-c异步读写文件原理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/" class="archive-article-date">
+  	<time datetime="2017-02-06T04:15:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><ul>
+<li>支持异步高并发文件追加方式的写入</li>
+<li>支持异步读取文件内容</li>
+</ul>
+<p><a href="https://bitbucket.org/MoPellet/mpfilemanager" target="_blank" rel="external">源码地址</a></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>创建自定义读写队列在子线程中实现文件读写不影响主线程。</p>
+<p>大家都知道在访问数据库或文件中，使用Serial Dispatch Queue 可避免数据竞争的问题。</p>
+<p>写入处理确实不可与其它写入处理以及包含读取处理的其它某些处理并行执行。但是如果读取处理只是与读取处理并行处理，那么多个并行执行就不会发生问题。</p>
+<p>也就是说，为了高效地进行访问，读取追加到当前序列中，写入处理在任一个读取处理没有执行的状态下，追加到序列中即可（在写入处理结束之前，读取处理不可执行）</p>
+<p>利用Dispath Group和 dispatch_set_target_queue函数也可以实现，但是源代码会很复杂。</p>
+<p>GCD为我们提供了更为聪明的解决方法:dispath_barrier_async函数。该函数同dispatch_queue_create函数生成的dispatch queue一起使用。</p>
+<p>以下是文件读写追加的方式（覆盖方式同理）：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//详细代码请查看使用例子</span></div><div class="line"></div><div class="line"> <span class="comment">//1.创建全局读写队列 </span></div><div class="line">   <span class="built_in">dispatch_queue_t</span> _queue = dispatch_queue_create(<span class="string">"FileManagerQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line">   </div><div class="line">   <span class="comment">//2.文件读写的线程创建</span></div><div class="line">    __block <span class="built_in">BOOL</span> result = <span class="literal">NO</span>;</div><div class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line">       dispatch_barrier_async(_queue, ^&#123;</div><div class="line">          </div><div class="line">           <span class="keyword">if</span>(![fileManager fileExistsAtPath:path]) <span class="comment">//如果不存在</span></div><div class="line">           &#123;</div><div class="line">               result = [fileManager createFileAtPath:path contents:<span class="literal">nil</span> attributes:<span class="literal">nil</span>];</div><div class="line">               <span class="built_in">NSData</span> *createData = [<span class="built_in">NSData</span> new];</div><div class="line">               [createData writeToFile:path atomically:<span class="literal">YES</span>];</div><div class="line">           &#125;</div><div class="line">           </div><div class="line">           <span class="built_in">NSFileHandle</span> *fileHandle = [<span class="built_in">NSFileHandle</span> fileHandleForUpdatingAtPath:path];</div><div class="line">           [fileHandle seekToEndOfFile];  <span class="comment">//将节点跳到文件的末尾</span></div><div class="line">           [fileHandle writeData:data];  <span class="comment">//追加写入数据</span></div><div class="line">           [fileHandle closeFile];</div><div class="line">           </div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
+<h1 id="MPFileManager"><a href="#MPFileManager" class="headerlink" title="MPFileManager"></a>MPFileManager</h1><h2 id="Installation-安装"><a href="#Installation-安装" class="headerlink" title="Installation 安装"></a>Installation 安装</h2><h3 id="1-手动安装"><a href="#1-手动安装" class="headerlink" title="1.手动安装:"></a>1.手动安装:</h3><p>下载DEMO后,将子文件夹MPFileManagerClasses拖入到项目中, 导入头文件MPFileManager.h开始使用.</p>
+<h2 id="Usage-使用方法"><a href="#Usage-使用方法" class="headerlink" title="Usage 使用方法"></a>Usage 使用方法</h2><h4 id="实例化方法"><a href="#实例化方法" class="headerlink" title="实例化方法"></a>实例化方法</h4><p><code>[MPFileManager shareInstance];</code></p>
+<h3 id="1-异步读取文件"><a href="#1-异步读取文件" class="headerlink" title="1.异步读取文件"></a>1.异步读取文件</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">MPFileManager</span> shareInstance] readFile:<span class="string">@"FullFilePath"</span> complete:^(<span class="built_in">NSData</span> *data) &#123;</div><div class="line">    <span class="keyword">if</span> (data) &#123;</div><div class="line">       </div><div class="line">    &#125;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h3 id="2-异步写文件（追加方式）"><a href="#2-异步写文件（追加方式）" class="headerlink" title="2.异步写文件（追加方式）"></a>2.异步写文件（追加方式）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">MPFileManager</span> shareInstance] writeFile:<span class="string">@"FullFilePath"</span></div><div class="line">                                    data:[<span class="built_in">NSData</span> new]</div><div class="line">                               writeMode:<span class="built_in">MPFileManagerWriteModeAdd</span></div><div class="line">                                complete:^(<span class="built_in">BOOL</span> result) &#123;</div><div class="line">    <span class="keyword">if</span> (result) &#123;</div><div class="line">        <span class="comment">// 写入成功</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="3-异步写文件（覆盖方式）"><a href="#3-异步写文件（覆盖方式）" class="headerlink" title="3.异步写文件（覆盖方式）"></a>3.异步写文件（覆盖方式）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">MPFileManager</span> shareInstance] writeFile:<span class="string">@"FullFilePath"</span></div><div class="line">                                    data:[<span class="built_in">NSData</span> new]</div><div class="line">                               writeMode:<span class="built_in">MPFileManagerWriteModeCover</span></div><div class="line">                                complete:^(<span class="built_in">BOOL</span> result) &#123;</div><div class="line">    <span class="keyword">if</span> (result) &#123;</div><div class="line">        <span class="comment">// 写入成功</span></div><div class="line">    &#125;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
+<li>WeChat : wzw351420450</li>
+<li>Email : mopellet@foxmail.com</li>
+<li>Resume : <a href="https://github.com/MoPellet/Resume" target="_blank" rel="external">个人简历</a></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS开发</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
   
 
 
