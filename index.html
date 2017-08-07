@@ -171,73 +171,9 @@
 <li><a href="http://pkwans.com" target="_blank" rel="external">我的博客</a></li>
 <li><a href="https://itunes.apple.com/app/id1259794085?mt=8" target="_blank" rel="external">PinkVPN</a>(App Store 上线地址)</li>
 </ul>
-<h2 id="Usage-使用方法"><a href="#Usage-使用方法" class="headerlink" title="Usage 使用方法"></a>Usage 使用方法</h2><ul>
-<li>在开发者网站，新增一个 AppID，并开启 Network Extensions 和 Personal VPN 的服务</li>
-<li>修改 AppID 为已经开启上述两个服务的 AppID</li>
-<li>在工程的 capabilities 中开启 Personal VPN</li>
-<li>为当前工程，导入 NetworkExtension.framework 和 Security.framework</li>
-<li>将子文件夹PKVPNManager拖入到项目中。</li>
-<li>导入MPVPNManager.h文件 </li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"PKVPNManager.h"</span></span></div></pre></td></tr></table></figure>
-<ul>
-<li>初始化</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[PKVPNManager shareInstance];</div></pre></td></tr></table></figure>
-<ul>
-<li>检查VPN是否配置</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] checkVPNConfigCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"success:%d error:%@"</span>,success,error.localizedDescription);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>配置VPN参数</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"save IKEv2 config %@ errot:%@"</span>,success?<span class="string">@"success"</span>:<span class="string">@"fail"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>移除VPN配置信息</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] removeVPNConfigCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>检测IP是否是你代理设置的IP (VPN 是否为当前VPN)</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] checkVPNISCurrentOpenCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"checkVPNISCurrentOpenCompleteHandler:%d error:%@"</span>,success,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>监测VPN状态的改变</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[PKVPNManager shareInstance] startMonitoringVPNStatusDidChange:^(<span class="keyword">enum</span> NEVPNStatus status) &#123;</div><div class="line">       [<span class="keyword">self</span> updateTitle];</div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"status change:%ld"</span>,(<span class="keyword">long</span>)status);</div><div class="line">       <span class="comment">// 在这里知道VPN是否开启</span></div><div class="line">       <span class="comment">// 检测IP是否是你代理设置的IP</span></div><div class="line">       </div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"currentVPNConnectConfig:%@"</span>,[PKVPNManager shareInstance].currentVPNConnectConfig);</div><div class="line">   &#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>其它参数详解</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//是否存储VPN config到本地</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> autoStorageConfig;</div><div class="line"><span class="comment">//当前VPN连接类型</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>, <span class="keyword">readonly</span>) PKVPNConnectType currentVPNConnectType;</div><div class="line"><span class="comment">// 当前VPN状态</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>, <span class="keyword">readonly</span>) NEVPNStatus currentVPNStatus;</div><div class="line"><span class="comment">// 当前VPN连接的配置信息</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSDictionary</span> *currentVPNConnectConfig;</div></pre></td></tr></table></figure>
-<ul>
-<li>IPSec协议，共享秘钥方式</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//设置VPN配置信息</span></div><div class="line"><span class="comment">//共享秘钥方式</span></div><div class="line">PKVPNConfigInfo *config = [PKVPNConfigInfo new];</div><div class="line">config.configTitle = <span class="string">@"PKVPNManager"</span>;</div><div class="line">config.VPNConnectType = PKVPNConnectTypeIPSec;</div><div class="line">config.serverAddress = <span class="string">@"xxx.xxx.xxx.xxx"</span>;</div><div class="line">config.username = <span class="string">@"username"</span>;</div><div class="line">config.password = <span class="string">@"password"</span>;</div><div class="line">config.sharePrivateKey = <span class="string">@"sharePrivateKey"</span>;</div><div class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"save IPSec config %@ error:%@"</span>,success?<span class="string">@"success"</span>:<span class="string">@"fail"</span>,error);</div><div class="line">&#125;</div><div class="line"> ];</div></pre></td></tr></table></figure>
-<ul>
-<li>IKEv2协议</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**如果是证书验证需要安装pem描述文件*/</span></div><div class="line"><span class="comment">/**不需要验证信息方式*/</span></div><div class="line"><span class="comment">/**直接用AirDrop将CACert.pem发送到手机即可*/</span></div><div class="line">PKVPNConfigInfo *config = [PKVPNConfigInfo new];</div><div class="line">config.configTitle = <span class="string">@"PKVPNManager"</span>;</div><div class="line">config.VPNConnectType = PKVPNConnectTypeIKEv2;</div><div class="line">config.serverAddress = <span class="string">@"xxx.xxx.xxx.xxx"</span>;</div><div class="line">config.username = <span class="string">@"username"</span>;</div><div class="line">config.password = <span class="string">@"password"</span>;</div><div class="line">config.remoteID = <span class="string">@"remoteID"</span>;</div><div class="line">config.serverCertificateCommonName = <span class="string">@"StrongSwan Root CA"</span>;</div><div class="line">config.serverCertificateIssuerCommonName = <span class="string">@"StrongSwan Root CA"</span>;</div><div class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"save IKEv2 config %@ errot:%@"</span>,success?<span class="string">@"success"</span>:<span class="string">@"fail"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>开启VPN</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> [[PKVPNManager shareInstance] startVPNConnectCompletionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<ul>
-<li>关闭VPN</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[[PKVPNManager shareInstance] stopVPNConnectCompletionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li>如果提示vpn服务器并未响应是配置账号的问题 请优先确保账号正确型，可在macOS或者iOS系统自带的VPN测试</li>
-</ul>
-<h2 id="服务端配置参考"><a href="#服务端配置参考" class="headerlink" title="服务端配置参考"></a>服务端配置参考</h2><ul>
-<li>服务端可以用 <a href="https://www.strongswan.org/" target="_blank" rel="external">strongswan</a></li>
-<li>服务端配置 <a href="https://raymii.org/s/tags/vpn.html" target="_blank" rel="external">https://raymii.org/s/tags/vpn.html</a></li>
-</ul>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
-<li>QQ : 351420450</li>
-<li>Email : mopellet@foxmail.com</li>
-<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
-<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/07/06/iOS开发VPN支持IPSec、IKEv2协议/#more">more >></a>
+        
       
 
       
@@ -306,22 +242,9 @@
 <!-- ![](http://7xp3rr.com1.z0.glb.clouddn.com/MPExitNotification.gif) -->
 <p><a href="http://oa10sjuog.bkt.clouddn.com/mv.m4v" target="_blank" rel="external">查看演示效果</a></p>
 <p>原理：在App运行的时候添加一个特定标识符的通知，每秒添加，下一秒根据标识符去移除，当APP进入后台开启一个长任务，防止进程立马被杀死。从而达到当App被杀死的时候有本地通知的退出提醒。</p>
-<h2 id="Usage-使用方法"><a href="#Usage-使用方法" class="headerlink" title="Usage 使用方法"></a>Usage 使用方法</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><ul>
-<li>将子文件夹Classes拖入到项目中。</li>
-<li>下载<a href="https://github.com/mindsnacks/MSWeakTimer" target="_blank" rel="external">MSWeakTimer</a>导入项目中 </li>
-<li>使用CocoaPods 请在Podfile里面添加pod ‘MSWeakTimer’ </li>
-</ul>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><ul>
-<li>在AppDelegate.m中导入MPExitNotification.h</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"MPExitNotification.h"</span></span></div></pre></td></tr></table></figure>
-<h3 id="第三步-在didFinishLaunchingWithOptions-中调用"><a href="#第三步-在didFinishLaunchingWithOptions-中调用" class="headerlink" title="第三步 在didFinishLaunchingWithOptions:中调用"></a>第三步 在didFinishLaunchingWithOptions:中调用</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</div><div class="line">    <span class="built_in">MPExitNotification</span> * exitNotification = [<span class="built_in">MPExitNotification</span> shareInstance];</div><div class="line">    <span class="comment">// 文字描述</span></div><div class="line">    exitNotification.body = <span class="string">@"您的应用已经关闭"</span>;</div><div class="line">    <span class="comment">// 如果你的app有开启定位 音乐播放等常驻后台的服务设置isBackground = Yes;</span></div><div class="line">    exitNotification.isBackground = <span class="literal">NO</span>;</div><div class="line">    <span class="comment">// 开始执行</span></div><div class="line">    [exitNotification execute];</div><div class="line">    <span class="comment">// 取消执行</span></div><div class="line">    <span class="comment">//[exitNotification cancelExecute];</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
-<li>QQ : 351420450</li>
-<li>Email : mopellet@foxmail.com</li>
-<li>Resume : <a href="http://pkwans.com/about/" target="_blank" rel="external">个人简历</a></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/#more">more >></a>
+        
       
 
       

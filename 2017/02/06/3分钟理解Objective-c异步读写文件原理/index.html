@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://http://pkwans.com/2017/02/06/3分钟理解Objective-c异步读写文件原理/index.html">
 <meta property="og:site_name" content="pkwans&#39;s blog">
 <meta property="og:description" content="描述 支持异步高并发文件追加方式的写入 支持异步读取文件内容  源码地址 实现原理创建自定义读写队列在子线程中实现文件读写不影响主线程。 大家都知道在访问数据库或文件中，使用Serial Dispatch Queue 可避免数据竞争的问题。 写入处理确实不可与其它写入处理以及包含读取处理的其它某些处理并行执行。但是如果读取处理只是与读取处理并行处理，那么多个并行执行就不会发生问题。 也就是说，为了">
-<meta property="og:updated_time" content="2017-08-07T15:12:40.000Z">
+<meta property="og:updated_time" content="2017-08-07T15:14:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3分钟理解Objective-c异步读写文件原理">
 <meta name="twitter:description" content="描述 支持异步高并发文件追加方式的写入 支持异步读取文件内容  源码地址 实现原理创建自定义读写队列在子线程中实现文件读写不影响主线程。 大家都知道在访问数据库或文件中，使用Serial Dispatch Queue 可避免数据竞争的问题。 写入处理确实不可与其它写入处理以及包含读取处理的其它某些处理并行执行。但是如果读取处理只是与读取处理并行处理，那么多个并行执行就不会发生问题。 也就是说，为了">
@@ -186,9 +186,10 @@
 <h3 id="2-异步写文件（追加方式）"><a href="#2-异步写文件（追加方式）" class="headerlink" title="2.异步写文件（追加方式）"></a>2.异步写文件（追加方式）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">MPFileManager</span> shareInstance] writeFile:<span class="string">@"FullFilePath"</span></div><div class="line">                                    data:[<span class="built_in">NSData</span> new]</div><div class="line">                               writeMode:<span class="built_in">MPFileManagerWriteModeAdd</span></div><div class="line">                                complete:^(<span class="built_in">BOOL</span> result) &#123;</div><div class="line">    <span class="keyword">if</span> (result) &#123;</div><div class="line">        <span class="comment">// 写入成功</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <h3 id="3-异步写文件（覆盖方式）"><a href="#3-异步写文件（覆盖方式）" class="headerlink" title="3.异步写文件（覆盖方式）"></a>3.异步写文件（覆盖方式）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">MPFileManager</span> shareInstance] writeFile:<span class="string">@"FullFilePath"</span></div><div class="line">                                    data:[<span class="built_in">NSData</span> new]</div><div class="line">                               writeMode:<span class="built_in">MPFileManagerWriteModeCover</span></div><div class="line">                                complete:^(<span class="built_in">BOOL</span> result) &#123;</div><div class="line">    <span class="keyword">if</span> (result) &#123;</div><div class="line">        <span class="comment">// 写入成功</span></div><div class="line">    &#125;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
 <h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
-<li>WeChat : wzw351420450</li>
+<li>QQ : 351420450</li>
 <li>Email : mopellet@foxmail.com</li>
-<li>Resume : <a href="https://github.com/MoPellet/Resume" target="_blank" rel="external">个人简历</a></li>
+<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
+<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
 </ul>
 
       
