@@ -215,6 +215,85 @@
 
 
   
+    <article id="post-MPURLProtocol" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/26/MPURLProtocol/">三行代码实现基于iOS的端口代理或URL重定向</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/26/MPURLProtocol/" class="archive-article-date">
+  	<time datetime="2017-06-26T04:13:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MPURLProtocol"><a href="#MPURLProtocol" class="headerlink" title="MPURLProtocol"></a>MPURLProtocol</h1><h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>过滤HTTP,HTTPS代理到IP;</li>
+<li>Hook url地址重定向到指定url;<br>可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控<br>配合SS可以实现高级的翻墙效果。懂得自然懂</li>
+</ul>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><ul>
+<li>支持HTTP端口代理</li>
+<li>支持HTTPS端口代理</li>
+<li>支持SOCKS端口代理</li>
+<li>支持HOST重定向</li>
+</ul>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    <span class="comment">// 1.配置信息 (HTTP、HTTPS、SOCKS、Redirect)</span></div><div class="line">    [<span class="built_in">MPURLProtocol</span> proxyHTTP:<span class="string">@"192.168.0.12"</span> port:<span class="number">8888</span>];</div><div class="line">    <span class="comment">//[MPURLProtocol redirectHost:@"cn.bing.com"];</span></div><div class="line">    <span class="comment">// 2.注册代理</span></div><div class="line">    [<span class="built_in">MPURLProtocol</span> proxyStart];</div><div class="line">    <span class="comment">// 3.移除代理</span></div><div class="line">    [<span class="built_in">MPURLProtocol</span> proxyStop];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
+<li>QQ : 351420450</li>
+<li>Email : mopellet@foxmail.com</li>
+<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
+<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS开发</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">VPN</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/26/MPURLProtocol/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-怎样在未越狱的iOS设备实现数据传输" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
