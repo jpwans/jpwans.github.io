@@ -55,7 +55,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/VPN/">随笔</a></li>
+				<li><a href="/tags/sometimes/">随笔</a></li>
 	        
 				<li><a href="/about">简历</a></li>
 	        
@@ -125,7 +125,7 @@
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/VPN/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/sometimes/">随笔</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/about">简历</a></li>
 		        
@@ -143,6 +143,82 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-sometimes20170807" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/07/sometimes20170807/">立秋小记</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/07/sometimes20170807/" class="archive-article-date">
+  	<time datetime="2017-08-07T04:13:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>回想十年前的那个暑假，我将要读初三。</p>
+<p>从来没想过这个暑假将会是我作为尖子生的最后一个暑假。</p>
+<p>从此我与那些好同学的距离越来越远。</p>
+<p>接下来的几年，我做过的那些事，无不成为青春的美好回忆。</p>
+<p>包夜，逃课，有过一些兄弟，也有过一些知己。</p>
+<p>我总是在想在高中的那三年是我被偷走的三年。</p>
+<p>我从亲戚朋友中的成绩好的好学生变成再也懒得抬头看一眼的普通人。</p>
+<p>这三年可能是我人生中最灰暗的三年。</p>
+<p>一次考试的失利变为截然不同的人生。</p>
+<p>接下来的这么多年遭受过多次的欺骗与背叛。</p>
+<p>变成如今的自私贪婪。</p>
+<p>读过不少书，但是从未走过多少路。</p>
+<p>从三年前来深圳的懵懂无知，</p>
+<p>再到如今旁人眼里的大神。</p>
+<p>从群租房到写字楼。</p>
+<p>从曾经为了写代码而写代码连战三天三夜。</p>
+<p>到现在也成为了很普通的普通人。</p>
+<p>自己只不过是个未亡人。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sometimes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/07/sometimes20170807/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-iOS开发VPN支持IPSec、IKEv2协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -430,79 +506,10 @@
 
 
   
-    <article id="post-3分钟理解Objective-c异步读写文件原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/">3分钟理解Objective-c异步读写文件原理</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/" class="archive-article-date">
-  	<time datetime="2017-02-06T04:15:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><ul>
-<li>支持异步高并发文件追加方式的写入</li>
-<li>支持异步读取文件内容</li>
-</ul>
-<p><a href="https://bitbucket.org/MoPellet/mpfilemanager" target="_blank" rel="external">源码地址</a></p>
-<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><p>创建自定义读写队列在子线程中实现文件读写不影响主线程。</p>
-<p>大家都知道在访问数据库或文件中，使用Serial Dispatch Queue 可避免数据竞争的问题。</p>
-<p>写入处理确实不可与其它写入处理以及包含读取处理的其它某些处理并行执行。但是如果读取处理只是与读取处理并行处理，那么多个并行执行就不会发生问题。</p>
-<p>也就是说，为了高效地进行访问，读取追加到当前序列中，写入处理在任一个读取处理没有执行的状态下，追加到序列中即可（在写入处理结束之前，读取处理不可执行）</p>
-<p>利用Dispath Group和 dispatch_set_target_queue函数也可以实现，但是源代码会很复杂。</p>
-<p>GCD为我们提供了更为聪明的解决方法:dispath_barrier_async函数。该函数同dispatch_queue_create函数生成的dispatch queue一起使用。</p>
-<p>以下是文件读写追加的方式（覆盖方式同理）：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//详细代码请查看使用例子</span></div><div class="line"></div><div class="line"> <span class="comment">//1.创建全局读写队列 </span></div><div class="line">   <span class="built_in">dispatch_queue_t</span> _queue = dispatch_queue_create(<span class="string">"FileManagerQueue"</span>, DISPATCH_QUEUE_CONCURRENT);</div><div class="line">   </div><div class="line">   <span class="comment">//2.文件读写的线程创建</span></div><div class="line">    __block <span class="built_in">BOOL</span> result = <span class="literal">NO</span>;</div><div class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line">       dispatch_barrier_async(_queue, ^&#123;</div><div class="line">          </div><div class="line">           <span class="keyword">if</span>(![fileManager fileExistsAtPath:path]) <span class="comment">//如果不存在</span></div><div class="line">           &#123;</div><div class="line">               result = [fileManager createFileAtPath:path contents:<span class="literal">nil</span> attributes:<span class="literal">nil</span>];</div><div class="line">               <span class="built_in">NSData</span> *createData = [<span class="built_in">NSData</span> new];</div><div class="line">               [createData writeToFile:path atomically:<span class="literal">YES</span>];</div><div class="line">           &#125;</div><div class="line">           </div><div class="line">           <span class="built_in">NSFileHandle</span> *fileHandle = [<span class="built_in">NSFileHandle</span> fileHandleForUpdatingAtPath:path];</div><div class="line">           [fileHandle seekToEndOfFile];  <span class="comment">//将节点跳到文件的末尾</span></div><div class="line">           [fileHandle writeData:data];  <span class="comment">//追加写入数据</span></div><div class="line">           [fileHandle closeFile];</div><div class="line">           </div><div class="line">       &#125;);</div></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/06/3分钟理解Objective-c异步读写文件原理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -589,6 +596,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">黑魔法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sometimes</a>
               </li>
             
             <div class="clearfix"></div>
