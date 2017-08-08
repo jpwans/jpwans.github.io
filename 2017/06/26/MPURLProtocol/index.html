@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://http://pkwans.com">
   <title>三行代码实现基于iOS的端口代理或URL重定向 | pkwans&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MPURLProtocol使用场景 过滤HTTP,HTTPS代理到IP; Hook url地址重定向到指定url;可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控配合SS可以实现高级的翻墙效果。懂得自然懂  描述 支持HTTP端口代理 支持HTTPS端口代理 支持SOCKS端口代理 支持HOST重定向  用法123456789        // 1.配置信息 (HTTP、HTTPS、S">
+  <meta name="description" content="MPURLProtocol使用场景 过滤HTTP,HTTPS代理到IP; Hook url地址重定向到指定url;可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控配合SS可以实现高级的翻墙效果。懂得自然懂  描述 支持HTTP端口代理 支持HTTPS端口代理 支持SOCKS端口代理 支持HOST重定向">
 <meta name="keywords" content="iOS开发,VPN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="三行代码实现基于iOS的端口代理或URL重定向">
 <meta property="og:url" content="http://http://pkwans.com/2017/06/26/MPURLProtocol/index.html">
 <meta property="og:site_name" content="pkwans&#39;s blog">
-<meta property="og:description" content="MPURLProtocol使用场景 过滤HTTP,HTTPS代理到IP; Hook url地址重定向到指定url;可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控配合SS可以实现高级的翻墙效果。懂得自然懂  描述 支持HTTP端口代理 支持HTTPS端口代理 支持SOCKS端口代理 支持HOST重定向  用法123456789        // 1.配置信息 (HTTP、HTTPS、S">
-<meta property="og:updated_time" content="2017-08-08T12:46:15.000Z">
+<meta property="og:description" content="MPURLProtocol使用场景 过滤HTTP,HTTPS代理到IP; Hook url地址重定向到指定url;可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控配合SS可以实现高级的翻墙效果。懂得自然懂  描述 支持HTTP端口代理 支持HTTPS端口代理 支持SOCKS端口代理 支持HOST重定向">
+<meta property="og:updated_time" content="2017-08-08T12:47:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="三行代码实现基于iOS的端口代理或URL重定向">
-<meta name="twitter:description" content="MPURLProtocol使用场景 过滤HTTP,HTTPS代理到IP; Hook url地址重定向到指定url;可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控配合SS可以实现高级的翻墙效果。懂得自然懂  描述 支持HTTP端口代理 支持HTTPS端口代理 支持SOCKS端口代理 支持HOST重定向  用法123456789        // 1.配置信息 (HTTP、HTTPS、S">
+<meta name="twitter:description" content="MPURLProtocol使用场景 过滤HTTP,HTTPS代理到IP; Hook url地址重定向到指定url;可用花瓶、鲨鱼等工具测试，亲测可用，适合远端或者局域网监控配合SS可以实现高级的翻墙效果。懂得自然懂  描述 支持HTTP端口代理 支持HTTPS端口代理 支持SOCKS端口代理 支持HOST重定向">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -176,6 +176,7 @@
 <li>支持SOCKS端口代理</li>
 <li>支持HOST重定向</li>
 </ul>
+<a id="more"></a>
 <h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    <span class="comment">// 1.配置信息 (HTTP、HTTPS、SOCKS、Redirect)</span></div><div class="line">    [<span class="built_in">MPURLProtocol</span> proxyHTTP:<span class="string">@"192.168.0.12"</span> port:<span class="number">8888</span>];</div><div class="line">    <span class="comment">//[MPURLProtocol redirectHost:@"cn.bing.com"];</span></div><div class="line">    <span class="comment">// 2.注册代理</span></div><div class="line">    [<span class="built_in">MPURLProtocol</span> proxyStart];</div><div class="line">    <span class="comment">// 3.移除代理</span></div><div class="line">    [<span class="built_in">MPURLProtocol</span> proxyStop];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
 <li>QQ : 351420450</li>
