@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://http://pkwans.com">
-  <title>Archives: 2017/5 | pkwans&#39;s blog</title>
+  <title>iOS代码混淆方案(支持指定或全局混淆) | pkwans&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="pkwans&#39;s blog">
-<meta property="og:url" content="http://http://pkwans.com/archives/2017/05/index.html">
+  <meta name="description" content="MPConfuseA support code obfuscation for iOS or macOS 项目下载地址 Description 描述 支持指定的前缀方法的混淆达到加密效果 支持属性的混淆 支持自定义方法或者属性的混淆 如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆  原理 简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆">
+<meta name="keywords" content="iOS开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS代码混淆方案(支持指定或全局混淆)">
+<meta property="og:url" content="http://http://pkwans.com/2017/05/22/MPConfuse/index.html">
 <meta property="og:site_name" content="pkwans&#39;s blog">
+<meta property="og:description" content="MPConfuseA support code obfuscation for iOS or macOS 项目下载地址 Description 描述 支持指定的前缀方法的混淆达到加密效果 支持属性的混淆 支持自定义方法或者属性的混淆 如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆  原理 简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆">
+<meta property="og:updated_time" content="2017-08-09T13:01:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pkwans&#39;s blog">
+<meta name="twitter:title" content="iOS代码混淆方案(支持指定或全局混淆)">
+<meta name="twitter:description" content="MPConfuseA support code obfuscation for iOS or macOS 项目下载地址 Description 描述 支持指定的前缀方法的混淆达到加密效果 支持属性的混淆 支持自定义方法或者属性的混淆 如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆  原理 简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -142,74 +146,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MPConfuse" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/23/怎样在未越狱的iOS设备实现数据传输/" class="archive-article-date">
-  	<time datetime="2017-05-23T02:15:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/23/怎样在未越狱的iOS设备实现数据传输/">怎样在未越狱的iOS设备实现数据传输</a>
+    <h1 class="article-title" itemprop="name">
+      iOS代码混淆方案(支持指定或全局混淆)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS开发</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/22/MPConfuse/" class="archive-article-date">
+        
+        <a href="/2017/05/22/MPConfuse/" class="archive-article-date">
   	<time datetime="2017-05-22T04:13:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/22/MPConfuse/">iOS代码混淆方案(支持指定或全局混淆)</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MPConfuse"><a href="#MPConfuse" class="headerlink" title="MPConfuse"></a>MPConfuse</h1><p>A support code obfuscation for iOS or macOS</p>
+<p><a href="https://bitbucket.org/MoPellet/mpconfuse" target="_blank" rel="external">项目下载地址</a></p>
+<h2 id="Description-描述"><a href="#Description-描述" class="headerlink" title="Description 描述"></a>Description 描述</h2><ul>
+<li>支持指定的前缀方法的混淆达到加密效果</li>
+<li>支持属性的混淆</li>
+<li>支持自定义方法或者属性的混淆</li>
+<li>如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆</li>
+</ul>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
+<li>简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆向难度。</li>
+<li>复杂的将指定到代码中插入花指令，和一些无意义的循环代码增加解密难度。</li>
+<li>从逆向的思维去思考怎么样加密达到最优的结果，这是一个值得深思的问题。</li>
+</ul>
+<h2 id="Usage-使用方法"><a href="#Usage-使用方法" class="headerlink" title="Usage 使用方法"></a>Usage 使用方法</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><ul>
+<li>将子文件夹MPConfuseClasses拖入到项目根目录中（Pods同级目录）。</li>
+</ul>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><ul>
+<li>将MPConfuseClasses拖拽到项目中,</li>
+<li>取消勾选Copy items if needed（否则会有路径错误）。</li>
+</ul>
+<h3 id="第三步-添加PCH文件"><a href="#第三步-添加PCH文件" class="headerlink" title="第三步 添加PCH文件"></a>第三步 添加PCH文件</h3><ul>
+<li>点击Projiect-&gt;TARGETS-&gt;Build Settings 搜索”Prefix Header”</li>
+<li>找到Prefix Header输入”$PROJECT_DIR/MPConfuseClasses/PrefixHeader.pch”（不包含引号）</li>
+<li>将Precompile Prefix Header 设置为YES （提高编译速度）</li>
+<li>如果自带PCH文件 可以将 codeObfuscation.h导入到PCH文件即可<h3 id="第四步-添加Run-Script"><a href="#第四步-添加Run-Script" class="headerlink" title="第四步 添加Run Script"></a>第四步 添加Run Script</h3></li>
+<li>点击Projiect-&gt;TARGETS-&gt;Build Phases </li>
+<li>点击左上角”+”选择New Run Script Phase</li>
+<li>添加”$PROJECT_DIR/MPConfuseClasses/confuse.sh”到空白区域（不包含引号）<h3 id="第五步-编译"><a href="#第五步-编译" class="headerlink" title="第五步 编译"></a>第五步 编译</h3></li>
+<li>COMMAND+B 编译 查看codeObfuscation.h内容是否发生变化 </li>
+</ul>
+<h2 id="Test-测试方法"><a href="#Test-测试方法" class="headerlink" title="Test 测试方法"></a>Test 测试方法</h2><ul>
+<li>安装 Class-dump<a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="external">下载地址</a></li>
+<li>class-dump -H /projict.app -o /heads</li>
+<li>/projict.app是app的路径 </li>
+<li>/heads是存放dump出来头文件的文件夹路径</li>
+<li>查看/heads目录的指定头文件的方法名即可</li>
+</ul>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
+<li>QQ : 351420450</li>
+<li>Email : mopellet@foxmail.com</li>
+<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
+<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -221,61 +259,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://http://pkwans.com/2017/05/22/MPConfuse/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/" class="archive-article-date">
-  	<time datetime="2017-05-06T06:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/">应用退出时在通知中心收到退出消息提醒</a>
-    </h1>
+    <a href="/2017/05/23/怎样在未越狱的iOS设备实现数据传输/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          怎样在未越狱的iOS设备实现数据传输
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">应用退出时在通知中心收到退出消息提醒</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS开发</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">黑魔法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'pkwans'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
 
 
           </div>
@@ -299,8 +390,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

@@ -171,22 +171,9 @@
 <p>包夜，逃课，有过一些兄弟，也有过一些知己。</p>
 <p>时光如同白驹过隙，忽然而已。</p>
 <p>我总是在想在高中的那三年是我被偷走的三年。</p>
-<p>我从亲戚朋友中的成绩好的好学生变成再也懒得抬头看一眼的普通人。</p>
-<p>这三年可能是我人生中最灰暗的三年。</p>
-<p>一次考试的失利变为截然不同的人生。</p>
-<p>接下来的这么多年遭受过多次的欺骗与背叛。</p>
-<p>变成如今的自私贪婪。</p>
-<p>读过不少书，但是从未走过多少路。</p>
-<p>从三年前来深圳的懵懂无知，</p>
-<p>再到如今旁人眼里的大神。</p>
-<p>从群租房到写字楼。</p>
-<p>从曾经为了写代码而写代码连战三天三夜。</p>
-<p>曾经总觉得人可以因梦想而活着。</p>
-<p>后来发现还是现实的更实际。</p>
-<p>到如今，梦想和现实的双轨运行。</p>
-<p>我真想做个伟大的程序员。</p>
-<p>真的想。</p>
-
+        
+          <a class="article-more-a" href="/2017/08/07/sometimes20170807/#more">more >></a>
+        
       
 
       
@@ -439,36 +426,70 @@
 
 
   
-    <article id="post-应用退出时在通知中心收到退出消息提醒" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MPConfuse" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/">应用退出时在通知中心收到退出消息提醒</a>
+      <a class="article-title" href="/2017/05/22/MPConfuse/">iOS代码混淆方案(支持指定或全局混淆)</a>
     </h1>
   
 
         
-        <a href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/" class="archive-article-date">
-  	<time datetime="2017-05-06T06:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-06</time>
+        <a href="/2017/05/22/MPConfuse/" class="archive-article-date">
+  	<time datetime="2017-05-22T04:13:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Description-描述"><a href="#Description-描述" class="headerlink" title="Description 描述"></a>Description 描述</h2><ul>
-<li>支持iOS8以上(亲测iOS9.3.3,iOS10.3)，应用退出时在通知中心收到应用退出消息</li>
+        <h1 id="MPConfuse"><a href="#MPConfuse" class="headerlink" title="MPConfuse"></a>MPConfuse</h1><p>A support code obfuscation for iOS or macOS</p>
+<p><a href="https://bitbucket.org/MoPellet/mpconfuse" target="_blank" rel="external">项目下载地址</a></p>
+<h2 id="Description-描述"><a href="#Description-描述" class="headerlink" title="Description 描述"></a>Description 描述</h2><ul>
+<li>支持指定的前缀方法的混淆达到加密效果</li>
+<li>支持属性的混淆</li>
+<li>支持自定义方法或者属性的混淆</li>
+<li>如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆</li>
 </ul>
-<p><a href="https://bitbucket.org/MoPellet/mpexitnotification" target="_blank" rel="external">源码地址</a></p>
-<!-- ![](http://7xp3rr.com1.z0.glb.clouddn.com/MPExitNotification.gif) -->
-<p><a href="http://oa10sjuog.bkt.clouddn.com/mv.m4v" target="_blank" rel="external">查看演示效果</a></p>
-<p>原理：在App运行的时候添加一个特定标识符的通知，每秒添加，下一秒根据标识符去移除，当APP进入后台开启一个长任务，防止进程立马被杀死。从而达到当App被杀死的时候有本地通知的退出提醒。</p>
-        
-          <a class="article-more-a" href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/#more">more >></a>
-        
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul>
+<li>简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆向难度。</li>
+<li>复杂的将指定到代码中插入花指令，和一些无意义的循环代码增加解密难度。</li>
+<li>从逆向的思维去思考怎么样加密达到最优的结果，这是一个值得深思的问题。</li>
+</ul>
+<h2 id="Usage-使用方法"><a href="#Usage-使用方法" class="headerlink" title="Usage 使用方法"></a>Usage 使用方法</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><ul>
+<li>将子文件夹MPConfuseClasses拖入到项目根目录中（Pods同级目录）。</li>
+</ul>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><ul>
+<li>将MPConfuseClasses拖拽到项目中,</li>
+<li>取消勾选Copy items if needed（否则会有路径错误）。</li>
+</ul>
+<h3 id="第三步-添加PCH文件"><a href="#第三步-添加PCH文件" class="headerlink" title="第三步 添加PCH文件"></a>第三步 添加PCH文件</h3><ul>
+<li>点击Projiect-&gt;TARGETS-&gt;Build Settings 搜索”Prefix Header”</li>
+<li>找到Prefix Header输入”$PROJECT_DIR/MPConfuseClasses/PrefixHeader.pch”（不包含引号）</li>
+<li>将Precompile Prefix Header 设置为YES （提高编译速度）</li>
+<li>如果自带PCH文件 可以将 codeObfuscation.h导入到PCH文件即可<h3 id="第四步-添加Run-Script"><a href="#第四步-添加Run-Script" class="headerlink" title="第四步 添加Run Script"></a>第四步 添加Run Script</h3></li>
+<li>点击Projiect-&gt;TARGETS-&gt;Build Phases </li>
+<li>点击左上角”+”选择New Run Script Phase</li>
+<li>添加”$PROJECT_DIR/MPConfuseClasses/confuse.sh”到空白区域（不包含引号）<h3 id="第五步-编译"><a href="#第五步-编译" class="headerlink" title="第五步 编译"></a>第五步 编译</h3></li>
+<li>COMMAND+B 编译 查看codeObfuscation.h内容是否发生变化 </li>
+</ul>
+<h2 id="Test-测试方法"><a href="#Test-测试方法" class="headerlink" title="Test 测试方法"></a>Test 测试方法</h2><ul>
+<li>安装 Class-dump<a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="external">下载地址</a></li>
+<li>class-dump -H /projict.app -o /heads</li>
+<li>/projict.app是app的路径 </li>
+<li>/heads是存放dump出来头文件的文件夹路径</li>
+<li>查看/heads目录的指定头文件的方法名即可</li>
+</ul>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
+<li>QQ : 351420450</li>
+<li>Email : mopellet@foxmail.com</li>
+<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
+<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
+</ul>
+
       
 
       
@@ -483,10 +504,6 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">iOS开发</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">黑魔法</a>
-        		</li>
       		
 		</ul>
 	</div>
@@ -495,7 +512,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/05/22/MPConfuse/">展开全文 >></a>
         </p>
       
 
