@@ -9,16 +9,17 @@
   <title>iOS代码混淆方案(支持指定或全局混淆) | pkwans&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="MPConfuseA support code obfuscation for iOS or macOS 项目下载地址 Description 描述 支持指定的前缀方法的混淆达到加密效果 支持属性的混淆 支持自定义方法或者属性的混淆 如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆  原理 简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆">
-<meta name="keywords" content="iOS开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS代码混淆方案(支持指定或全局混淆)">
-<meta property="og:url" content="http://http://pkwans.com/2017/05/22/MPConfuse/index.html">
+<meta property="og:url" content="http://http//pkwans.com/2017/05/22/MPConfuse/index.html">
 <meta property="og:site_name" content="pkwans&#39;s blog">
 <meta property="og:description" content="MPConfuseA support code obfuscation for iOS or macOS 项目下载地址 Description 描述 支持指定的前缀方法的混淆达到加密效果 支持属性的混淆 支持自定义方法或者属性的混淆 如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆  原理 简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆">
-<meta property="og:updated_time" content="2017-08-09T13:01:06.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-05-22T04:13:23.000Z">
+<meta property="article:modified_time" content="2017-08-09T13:01:06.000Z">
+<meta property="article:author" content="pkwans">
+<meta property="article:tag" content="iOS开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS代码混淆方案(支持指定或全局混淆)">
-<meta name="twitter:description" content="MPConfuseA support code obfuscation for iOS or macOS 项目下载地址 Description 描述 支持指定的前缀方法的混淆达到加密效果 支持属性的混淆 支持自定义方法或者属性的混淆 如果要达到混淆的效果多写点闭包（block），用函数式编程，天生就是混淆  原理 简单的将方法名或者属性名用宏定义的方式替换成随机的字符串达到混淆方法名和参数，增加逆">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -34,7 +35,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -48,10 +49,8 @@
 			<img src="/img/favicon.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">pkwans</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">github被封，转移阵地。</p>
 		
 
 		<nav class="header-menu">
@@ -98,10 +97,8 @@
 				<img src="/img/favicon.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">pkwans</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>github被封，转移阵地。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -167,7 +164,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="MPConfuse"><a href="#MPConfuse" class="headerlink" title="MPConfuse"></a>MPConfuse</h1><p>A support code obfuscation for iOS or macOS</p>
-<p><a href="https://bitbucket.org/MoPellet/mpconfuse" target="_blank" rel="external">项目下载地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://bitbucket.org/MoPellet/mpconfuse">项目下载地址</a></p>
 <h2 id="Description-描述"><a href="#Description-描述" class="headerlink" title="Description 描述"></a>Description 描述</h2><ul>
 <li>支持指定的前缀方法的混淆达到加密效果</li>
 <li>支持属性的混淆</li>
@@ -188,24 +185,24 @@
 </ul>
 <h3 id="第三步-添加PCH文件"><a href="#第三步-添加PCH文件" class="headerlink" title="第三步 添加PCH文件"></a>第三步 添加PCH文件</h3><ul>
 <li>点击Projiect-&gt;TARGETS-&gt;Build Settings 搜索”Prefix Header”</li>
-<li>找到Prefix Header输入”$PROJECT_DIR/MPConfuseClasses/PrefixHeader.pch”（不包含引号）</li>
+<li>找到Prefix Header输入”$PROJECT_DIR&#x2F;MPConfuseClasses&#x2F;PrefixHeader.pch”（不包含引号）</li>
 <li>将Precompile Prefix Header 设置为YES （提高编译速度）</li>
 <li>如果自带PCH文件 可以将 codeObfuscation.h导入到PCH文件即可<h3 id="第四步-添加Run-Script"><a href="#第四步-添加Run-Script" class="headerlink" title="第四步 添加Run Script"></a>第四步 添加Run Script</h3></li>
 <li>点击Projiect-&gt;TARGETS-&gt;Build Phases </li>
 <li>点击左上角”+”选择New Run Script Phase</li>
-<li>添加”$PROJECT_DIR/MPConfuseClasses/confuse.sh”到空白区域（不包含引号）<h3 id="第五步-编译"><a href="#第五步-编译" class="headerlink" title="第五步 编译"></a>第五步 编译</h3></li>
-<li>COMMAND+B 编译 查看codeObfuscation.h内容是否发生变化 </li>
+<li>添加”$PROJECT_DIR&#x2F;MPConfuseClasses&#x2F;confuse.sh”到空白区域（不包含引号）<h3 id="第五步-编译"><a href="#第五步-编译" class="headerlink" title="第五步 编译"></a>第五步 编译</h3></li>
+<li>COMMAND+B 编译 查看codeObfuscation.h内容是否发生变化</li>
 </ul>
 <h2 id="Test-测试方法"><a href="#Test-测试方法" class="headerlink" title="Test 测试方法"></a>Test 测试方法</h2><ul>
-<li>安装 Class-dump<a href="http://stevenygard.com/projects/class-dump/" target="_blank" rel="external">下载地址</a></li>
-<li>class-dump -H /projict.app -o /heads</li>
-<li>/projict.app是app的路径 </li>
-<li>/heads是存放dump出来头文件的文件夹路径</li>
-<li>查看/heads目录的指定头文件的方法名即可</li>
+<li>安装 Class-dump<a target="_blank" rel="noopener" href="http://stevenygard.com/projects/class-dump/">下载地址</a></li>
+<li>class-dump -H &#x2F;projict.app -o &#x2F;heads</li>
+<li>&#x2F;projict.app是app的路径 </li>
+<li>&#x2F;heads是存放dump出来头文件的文件夹路径</li>
+<li>查看&#x2F;heads目录的指定头文件的方法名即可</li>
 </ul>
 <h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
 <li>QQ : 351420450</li>
-<li>Email : mopellet@foxmail.com</li>
+<li>Email : <a href="mailto:&#109;&#111;&#112;&#x65;&#108;&#108;&#101;&#x74;&#x40;&#102;&#111;&#x78;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#109;&#111;&#112;&#x65;&#108;&#108;&#101;&#x74;&#x40;&#102;&#111;&#x78;&#x6d;&#97;&#105;&#108;&#x2e;&#99;&#x6f;&#x6d;</a></li>
 <li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
 <li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
 </ul>
@@ -309,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://http://pkwans.com/2017/05/22/MPConfuse/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://http//pkwans.com/2017/05/22/MPConfuse/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -323,7 +320,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/05/23/怎样在未越狱的iOS设备实现数据传输/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/05/23/%E6%80%8E%E6%A0%B7%E5%9C%A8%E6%9C%AA%E8%B6%8A%E7%8B%B1%E7%9A%84iOS%E8%AE%BE%E5%A4%87%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -333,7 +330,7 @@
     </a>
   
   
-    <a href="/2017/05/06/应用退出时在通知中心收到退出消息提醒/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/06/%E5%BA%94%E7%94%A8%E9%80%80%E5%87%BA%E6%97%B6%E5%9C%A8%E9%80%9A%E7%9F%A5%E4%B8%AD%E5%BF%83%E6%94%B6%E5%88%B0%E9%80%80%E5%87%BA%E6%B6%88%E6%81%AF%E6%8F%90%E9%86%92/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">应用退出时在通知中心收到退出消息提醒</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -364,7 +361,7 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -376,10 +373,10 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 pkwans
+    		&copy; 2022 pkwans
     	</div>
       	<div class="footer-right">
-      		<p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+      		<p>Hosted by <a target="_blank" rel="noopener" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
           <script id="dsq-count-scr" src="//pkwans.disqus.com/count.js" async></script>
       	</div>
     </div>
@@ -451,11 +448,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑魔法</a>
+                <a href="javascript:void(0)" class="js-tag color5">sometimes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sometimes</a>
+                <a href="javascript:void(0)" class="js-tag color4">黑魔法</a>
               </li>
             
             <div class="clearfix"></div>

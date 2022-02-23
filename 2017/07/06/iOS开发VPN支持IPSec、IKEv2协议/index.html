@@ -9,16 +9,18 @@
   <title>iOS开发VPN支持IPSec、IKEv2协议 | pkwans&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="PKVPNManager源码地址 支持IPSec、IKEv2协议 二步启动 描述鉴于Apple自带的VPN开发过于复杂难以理解，重新封装了一套VPN开发框架，对于简单的VPN开发只需要配置，和启动。现开源给大家，欢迎提交Issues，如果觉得不错的话一定不要忘了star和fork哦。相关技术问题欢迎加入QQ交流群（群号：92073722）  我的博客 PinkVPN(App Store 上线地址)">
-<meta name="keywords" content="iOS开发,VPN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发VPN支持IPSec、IKEv2协议">
-<meta property="og:url" content="http://http://pkwans.com/2017/07/06/iOS开发VPN支持IPSec、IKEv2协议/index.html">
+<meta property="og:url" content="http://http//pkwans.com/2017/07/06/iOS%E5%BC%80%E5%8F%91VPN%E6%94%AF%E6%8C%81IPSec%E3%80%81IKEv2%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="pkwans&#39;s blog">
 <meta property="og:description" content="PKVPNManager源码地址 支持IPSec、IKEv2协议 二步启动 描述鉴于Apple自带的VPN开发过于复杂难以理解，重新封装了一套VPN开发框架，对于简单的VPN开发只需要配置，和启动。现开源给大家，欢迎提交Issues，如果觉得不错的话一定不要忘了star和fork哦。相关技术问题欢迎加入QQ交流群（群号：92073722）  我的博客 PinkVPN(App Store 上线地址)">
-<meta property="og:updated_time" content="2017-08-07T15:15:07.000Z">
+<meta property="og:locale">
+<meta property="article:published_time" content="2017-07-06T10:15:23.000Z">
+<meta property="article:modified_time" content="2017-08-07T15:15:07.000Z">
+<meta property="article:author" content="pkwans">
+<meta property="article:tag" content="iOS开发">
+<meta property="article:tag" content="VPN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS开发VPN支持IPSec、IKEv2协议">
-<meta name="twitter:description" content="PKVPNManager源码地址 支持IPSec、IKEv2协议 二步启动 描述鉴于Apple自带的VPN开发过于复杂难以理解，重新封装了一套VPN开发框架，对于简单的VPN开发只需要配置，和启动。现开源给大家，欢迎提交Issues，如果觉得不错的话一定不要忘了star和fork哦。相关技术问题欢迎加入QQ交流群（群号：92073722）  我的博客 PinkVPN(App Store 上线地址)">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -34,7 +36,7 @@
 
   
 
-</head>
+<meta name="generator" content="Hexo 6.0.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -48,10 +50,8 @@
 			<img src="/img/favicon.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">pkwans</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">github被封，转移阵地。</p>
 		
 
 		<nav class="header-menu">
@@ -98,10 +98,8 @@
 				<img src="/img/favicon.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">pkwans</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>github被封，转移阵地。<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -158,7 +156,7 @@
   
 
         
-        <a href="/2017/07/06/iOS开发VPN支持IPSec、IKEv2协议/" class="archive-article-date">
+        <a href="/2017/07/06/iOS%E5%BC%80%E5%8F%91VPN%E6%94%AF%E6%8C%81IPSec%E3%80%81IKEv2%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
   	<time datetime="2017-07-06T10:15:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-06</time>
 </a>
         
@@ -166,77 +164,90 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="PKVPNManager"><a href="#PKVPNManager" class="headerlink" title="PKVPNManager"></a>PKVPNManager</h1><p><a href="https://bitbucket.org/MoPellet/pkvpnmanager/" target="_blank" rel="external">源码地址</a></p>
+        <h1 id="PKVPNManager"><a href="#PKVPNManager" class="headerlink" title="PKVPNManager"></a>PKVPNManager</h1><p><a target="_blank" rel="noopener" href="https://bitbucket.org/MoPellet/pkvpnmanager/">源码地址</a></p>
 <p>支持IPSec、IKEv2协议 二步启动</p>
 <h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>鉴于Apple自带的VPN开发过于复杂难以理解，重新封装了一套VPN开发框架，对于简单的VPN开发只需要配置，和启动。现开源给大家，欢迎提交Issues，如果觉得不错的话一定不要忘了star和fork哦。相关技术问题欢迎加入QQ交流群（群号：92073722）</p>
 <ul>
-<li><a href="http://pkwans.com" target="_blank" rel="external">我的博客</a></li>
-<li><a href="https://itunes.apple.com/app/id1259794085?mt=8" target="_blank" rel="external">PinkVPN</a>(App Store 上线地址)</li>
+<li><a target="_blank" rel="noopener" href="http://pkwans.com/">我的博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://itunes.apple.com/app/id1259794085?mt=8">PinkVPN</a>(App Store 上线地址)</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
+
 <h2 id="Usage-使用方法"><a href="#Usage-使用方法" class="headerlink" title="Usage 使用方法"></a>Usage 使用方法</h2><ul>
 <li>在开发者网站，新增一个 AppID，并开启 Network Extensions 和 Personal VPN 的服务</li>
 <li>修改 AppID 为已经开启上述两个服务的 AppID</li>
 <li>在工程的 capabilities 中开启 Personal VPN</li>
 <li>为当前工程，导入 NetworkExtension.framework 和 Security.framework</li>
 <li>将子文件夹PKVPNManager拖入到项目中。</li>
-<li>导入MPVPNManager.h文件 </li>
+<li>导入MPVPNManager.h文件</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"PKVPNManager.h"</span></span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;PKVPNManager.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>初始化</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[PKVPNManager shareInstance];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[PKVPNManager shareInstance];</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>检查VPN是否配置</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] checkVPNConfigCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"success:%d error:%@"</span>,success,error.localizedDescription);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[[PKVPNManager shareInstance] checkVPNConfigCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;success:%d error:%@&quot;</span>,success,error.localizedDescription);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>配置VPN参数</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"save IKEv2 config %@ errot:%@"</span>,success?<span class="string">@"success"</span>:<span class="string">@"fail"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;save IKEv2 config %@ errot:%@&quot;</span>,success?<span class="string">@&quot;success&quot;</span>:<span class="string">@&quot;fail&quot;</span>,error);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>移除VPN配置信息</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] removeVPNConfigCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[[PKVPNManager shareInstance] removeVPNConfigCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>检测IP是否是你代理设置的IP (VPN 是否为当前VPN)</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[[PKVPNManager shareInstance] checkVPNISCurrentOpenCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"checkVPNISCurrentOpenCompleteHandler:%d error:%@"</span>,success,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[[PKVPNManager shareInstance] checkVPNISCurrentOpenCompleteHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;checkVPNISCurrentOpenCompleteHandler:%d error:%@&quot;</span>,success,error);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>监测VPN状态的改变</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[[PKVPNManager shareInstance] startMonitoringVPNStatusDidChange:^(<span class="keyword">enum</span> NEVPNStatus status) &#123;</div><div class="line">       [<span class="keyword">self</span> updateTitle];</div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"status change:%ld"</span>,(<span class="keyword">long</span>)status);</div><div class="line">       <span class="comment">// 在这里知道VPN是否开启</span></div><div class="line">       <span class="comment">// 检测IP是否是你代理设置的IP</span></div><div class="line">       </div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"currentVPNConnectConfig:%@"</span>,[PKVPNManager shareInstance].currentVPNConnectConfig);</div><div class="line">   &#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[[PKVPNManager shareInstance] startMonitoringVPNStatusDidChange:^(<span class="keyword">enum</span> NEVPNStatus status) &#123;</span><br><span class="line">       [<span class="keyword">self</span> updateTitle];</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@&quot;status change:%ld&quot;</span>,(<span class="keyword">long</span>)status);</span><br><span class="line">       <span class="comment">// 在这里知道VPN是否开启</span></span><br><span class="line">       <span class="comment">// 检测IP是否是你代理设置的IP</span></span><br><span class="line">       </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@&quot;currentVPNConnectConfig:%@&quot;</span>,[PKVPNManager shareInstance].currentVPNConnectConfig);</span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
 <ul>
 <li>其它参数详解</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//是否存储VPN config到本地</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> autoStorageConfig;</div><div class="line"><span class="comment">//当前VPN连接类型</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>, <span class="keyword">readonly</span>) PKVPNConnectType currentVPNConnectType;</div><div class="line"><span class="comment">// 当前VPN状态</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>, <span class="keyword">readonly</span>) NEVPNStatus currentVPNStatus;</div><div class="line"><span class="comment">// 当前VPN连接的配置信息</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSDictionary</span> *currentVPNConnectConfig;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//是否存储VPN config到本地</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">BOOL</span> autoStorageConfig;</span><br><span class="line"><span class="comment">//当前VPN连接类型</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>, <span class="keyword">readonly</span>) PKVPNConnectType currentVPNConnectType;</span><br><span class="line"><span class="comment">// 当前VPN状态</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>, <span class="keyword">readonly</span>) NEVPNStatus currentVPNStatus;</span><br><span class="line"><span class="comment">// 当前VPN连接的配置信息</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>, <span class="keyword">readonly</span>, <span class="keyword">nullable</span>) <span class="built_in">NSDictionary</span> *currentVPNConnectConfig;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>IPSec协议，共享秘钥方式</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//设置VPN配置信息</span></div><div class="line"><span class="comment">//共享秘钥方式</span></div><div class="line">PKVPNConfigInfo *config = [PKVPNConfigInfo new];</div><div class="line">config.configTitle = <span class="string">@"PKVPNManager"</span>;</div><div class="line">config.VPNConnectType = PKVPNConnectTypeIPSec;</div><div class="line">config.serverAddress = <span class="string">@"xxx.xxx.xxx.xxx"</span>;</div><div class="line">config.username = <span class="string">@"username"</span>;</div><div class="line">config.password = <span class="string">@"password"</span>;</div><div class="line">config.sharePrivateKey = <span class="string">@"sharePrivateKey"</span>;</div><div class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"save IPSec config %@ error:%@"</span>,success?<span class="string">@"success"</span>:<span class="string">@"fail"</span>,error);</div><div class="line">&#125;</div><div class="line"> ];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//设置VPN配置信息</span></span><br><span class="line"><span class="comment">//共享秘钥方式</span></span><br><span class="line">PKVPNConfigInfo *config = [PKVPNConfigInfo new];</span><br><span class="line">config.configTitle = <span class="string">@&quot;PKVPNManager&quot;</span>;</span><br><span class="line">config.VPNConnectType = PKVPNConnectTypeIPSec;</span><br><span class="line">config.serverAddress = <span class="string">@&quot;xxx.xxx.xxx.xxx&quot;</span>;</span><br><span class="line">config.username = <span class="string">@&quot;username&quot;</span>;</span><br><span class="line">config.password = <span class="string">@&quot;password&quot;</span>;</span><br><span class="line">config.sharePrivateKey = <span class="string">@&quot;sharePrivateKey&quot;</span>;</span><br><span class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;save IPSec config %@ error:%@&quot;</span>,success?<span class="string">@&quot;success&quot;</span>:<span class="string">@&quot;fail&quot;</span>,error);</span><br><span class="line">&#125;</span><br><span class="line"> ];</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>IKEv2协议</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**如果是证书验证需要安装pem描述文件*/</span></div><div class="line"><span class="comment">/**不需要验证信息方式*/</span></div><div class="line"><span class="comment">/**直接用AirDrop将CACert.pem发送到手机即可*/</span></div><div class="line">PKVPNConfigInfo *config = [PKVPNConfigInfo new];</div><div class="line">config.configTitle = <span class="string">@"PKVPNManager"</span>;</div><div class="line">config.VPNConnectType = PKVPNConnectTypeIKEv2;</div><div class="line">config.serverAddress = <span class="string">@"xxx.xxx.xxx.xxx"</span>;</div><div class="line">config.username = <span class="string">@"username"</span>;</div><div class="line">config.password = <span class="string">@"password"</span>;</div><div class="line">config.remoteID = <span class="string">@"remoteID"</span>;</div><div class="line">config.serverCertificateCommonName = <span class="string">@"StrongSwan Root CA"</span>;</div><div class="line">config.serverCertificateIssuerCommonName = <span class="string">@"StrongSwan Root CA"</span>;</div><div class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"save IKEv2 config %@ errot:%@"</span>,success?<span class="string">@"success"</span>:<span class="string">@"fail"</span>,error);</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**如果是证书验证需要安装pem描述文件*/</span></span><br><span class="line"><span class="comment">/**不需要验证信息方式*/</span></span><br><span class="line"><span class="comment">/**直接用AirDrop将CACert.pem发送到手机即可*/</span></span><br><span class="line">PKVPNConfigInfo *config = [PKVPNConfigInfo new];</span><br><span class="line">config.configTitle = <span class="string">@&quot;PKVPNManager&quot;</span>;</span><br><span class="line">config.VPNConnectType = PKVPNConnectTypeIKEv2;</span><br><span class="line">config.serverAddress = <span class="string">@&quot;xxx.xxx.xxx.xxx&quot;</span>;</span><br><span class="line">config.username = <span class="string">@&quot;username&quot;</span>;</span><br><span class="line">config.password = <span class="string">@&quot;password&quot;</span>;</span><br><span class="line">config.remoteID = <span class="string">@&quot;remoteID&quot;</span>;</span><br><span class="line">config.serverCertificateCommonName = <span class="string">@&quot;StrongSwan Root CA&quot;</span>;</span><br><span class="line">config.serverCertificateIssuerCommonName = <span class="string">@&quot;StrongSwan Root CA&quot;</span>;</span><br><span class="line">[[PKVPNManager shareInstance] settingUpVPNConfig:config completeHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@&quot;save IKEv2 config %@ errot:%@&quot;</span>,success?<span class="string">@&quot;success&quot;</span>:<span class="string">@&quot;fail&quot;</span>,error);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>开启VPN</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> [[PKVPNManager shareInstance] startVPNConnectCompletionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> [[PKVPNManager shareInstance] startVPNConnectCompletionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>关闭VPN</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[[PKVPNManager shareInstance] stopVPNConnectCompletionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</div><div class="line">    </div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[[PKVPNManager shareInstance] stopVPNConnectCompletionHandler:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line">    </span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
 <li>如果提示vpn服务器并未响应是配置账号的问题 请优先确保账号正确型，可在macOS或者iOS系统自带的VPN测试</li>
 </ul>
 <h2 id="服务端配置参考"><a href="#服务端配置参考" class="headerlink" title="服务端配置参考"></a>服务端配置参考</h2><ul>
-<li>服务端可以用 <a href="https://www.strongswan.org/" target="_blank" rel="external">strongswan</a></li>
-<li>服务端配置 <a href="https://raymii.org/s/tags/vpn.html" target="_blank" rel="external">https://raymii.org/s/tags/vpn.html</a></li>
+<li>服务端可以用 <a target="_blank" rel="noopener" href="https://www.strongswan.org/">strongswan</a></li>
+<li>服务端配置 <a target="_blank" rel="noopener" href="https://raymii.org/s/tags/vpn.html">https://raymii.org/s/tags/vpn.html</a></li>
 </ul>
 <h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
 <li>QQ : 351420450</li>
-<li>Email : mopellet@foxmail.com</li>
+<li>Email : <a href="mailto:&#x6d;&#x6f;&#x70;&#101;&#108;&#108;&#x65;&#116;&#x40;&#x66;&#x6f;&#x78;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x6d;&#x6f;&#x70;&#101;&#108;&#108;&#x65;&#116;&#x40;&#x66;&#x6f;&#x78;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#111;&#x6d;</a></li>
 <li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
 <li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
 </ul>
@@ -344,7 +355,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://http://pkwans.com/2017/07/06/iOS开发VPN支持IPSec、IKEv2协议/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://http//pkwans.com/2017/07/06/iOS%E5%BC%80%E5%8F%91VPN%E6%94%AF%E6%8C%81IPSec%E3%80%81IKEv2%E5%8D%8F%E8%AE%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -399,7 +410,7 @@
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
         })();
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </section>
   
 
@@ -411,10 +422,10 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 pkwans
+    		&copy; 2022 pkwans
     	</div>
       	<div class="footer-right">
-      		<p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
+      		<p>Hosted by <a target="_blank" rel="noopener" href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a></p>
           <script id="dsq-count-scr" src="//pkwans.disqus.com/count.js" async></script>
       	</div>
     </div>
@@ -486,11 +497,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">黑魔法</a>
+                <a href="javascript:void(0)" class="js-tag color5">sometimes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sometimes</a>
+                <a href="javascript:void(0)" class="js-tag color4">黑魔法</a>
               </li>
             
             <div class="clearfix"></div>
