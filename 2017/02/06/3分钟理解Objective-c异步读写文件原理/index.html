@@ -16,7 +16,7 @@
 <meta property="og:description" content="描述 支持异步高并发文件追加方式的写入 支持异步读取文件内容  源码地址 实现原理创建自定义读写队列在子线程中实现文件读写不影响主线程。 大家都知道在访问数据库或文件中，使用Serial Dispatch Queue 可避免数据竞争的问题。 写入处理确实不可与其它写入处理以及包含读取处理的其它某些处理并行执行。但是如果读取处理只是与读取处理并行处理，那么多个并行执行就不会发生问题。 也就是说，为了">
 <meta property="og:locale">
 <meta property="article:published_time" content="2017-02-06T04:15:11.000Z">
-<meta property="article:modified_time" content="2017-08-07T15:14:35.000Z">
+<meta property="article:modified_time" content="2022-03-01T18:59:58.171Z">
 <meta property="article:author" content="jpwans">
 <meta property="article:tag" content="iOS开发">
 <meta name="twitter:card" content="summary">
@@ -174,13 +174,6 @@
 <h3 id="2-异步写文件（追加方式）"><a href="#2-异步写文件（追加方式）" class="headerlink" title="2.异步写文件（追加方式）"></a>2.异步写文件（追加方式）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">MPFileManager</span> shareInstance] writeFile:<span class="string">@&quot;FullFilePath&quot;</span></span><br><span class="line">                                    data:[<span class="built_in">NSData</span> new]</span><br><span class="line">                               writeMode:<span class="built_in">MPFileManagerWriteModeAdd</span></span><br><span class="line">                                complete:^(<span class="built_in">BOOL</span> result) &#123;</span><br><span class="line">    <span class="keyword">if</span> (result) &#123;</span><br><span class="line">        <span class="comment">// 写入成功</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3-异步写文件（覆盖方式）"><a href="#3-异步写文件（覆盖方式）" class="headerlink" title="3.异步写文件（覆盖方式）"></a>3.异步写文件（覆盖方式）</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">MPFileManager</span> shareInstance] writeFile:<span class="string">@&quot;FullFilePath&quot;</span></span><br><span class="line">                                    data:[<span class="built_in">NSData</span> new]</span><br><span class="line">                               writeMode:<span class="built_in">MPFileManagerWriteModeCover</span></span><br><span class="line">                                complete:^(<span class="built_in">BOOL</span> result) &#123;</span><br><span class="line">    <span class="keyword">if</span> (result) &#123;</span><br><span class="line">        <span class="comment">// 写入成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 
-
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
-<li>QQ : 351420450</li>
-<li>Email : <a href="mailto:&#109;&#x6f;&#112;&#x65;&#x6c;&#x6c;&#x65;&#116;&#x40;&#102;&#111;&#120;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;">&#109;&#x6f;&#112;&#x65;&#x6c;&#x6c;&#x65;&#116;&#x40;&#102;&#111;&#120;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#x6d;</a></li>
-<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
-<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
-</ul>
 
       
 

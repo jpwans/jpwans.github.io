@@ -16,7 +16,7 @@
 <meta property="og:description" content="Description 描述 支持iOS8以上(亲测iOS9.3.3,iOS10.3)，应用退出时在通知中心收到应用退出消息  源码地址  查看演示效果 原理：在App运行的时候添加一个特定标识符的通知，每秒添加，下一秒根据标识符去移除，当APP进入后台开启一个长任务，防止进程立马被杀死。从而达到当App被杀死的时候有本地通知的退出提醒。">
 <meta property="og:locale">
 <meta property="article:published_time" content="2017-05-06T06:15:23.000Z">
-<meta property="article:modified_time" content="2017-08-07T15:14:57.000Z">
+<meta property="article:modified_time" content="2022-03-01T18:59:50.644Z">
 <meta property="article:author" content="jpwans">
 <meta property="article:tag" content="iOS开发">
 <meta property="article:tag" content="黑魔法">
@@ -172,12 +172,7 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="string">&quot;MPExitNotification.h&quot;</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="第三步-在didFinishLaunchingWithOptions-中调用"><a href="#第三步-在didFinishLaunchingWithOptions-中调用" class="headerlink" title="第三步 在didFinishLaunchingWithOptions:中调用"></a>第三步 在didFinishLaunchingWithOptions:中调用</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="built_in">MPExitNotification</span> * exitNotification = [<span class="built_in">MPExitNotification</span> shareInstance];</span><br><span class="line">    <span class="comment">// 文字描述</span></span><br><span class="line">    exitNotification.body = <span class="string">@&quot;您的应用已经关闭&quot;</span>;</span><br><span class="line">    <span class="comment">// 如果你的app有开启定位 音乐播放等常驻后台的服务设置isBackground = Yes;</span></span><br><span class="line">    exitNotification.isBackground = <span class="literal">NO</span>;</span><br><span class="line">    <span class="comment">// 开始执行</span></span><br><span class="line">    [exitNotification execute];</span><br><span class="line">    <span class="comment">// 取消执行</span></span><br><span class="line">    <span class="comment">//[exitNotification cancelExecute];</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式:"></a>联系方式:</h2><ul>
-<li>QQ : 351420450</li>
-<li>Email : <a href="mailto:&#x6d;&#111;&#112;&#x65;&#108;&#x6c;&#x65;&#116;&#x40;&#x66;&#x6f;&#120;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;">&#x6d;&#111;&#112;&#x65;&#108;&#x6c;&#x65;&#116;&#x40;&#x66;&#x6f;&#120;&#109;&#x61;&#105;&#x6c;&#46;&#x63;&#x6f;&#x6d;</a></li>
-<li>更多相关问题欢迎加入QQ交流群（群号：92073722）</li>
-<li>另可商务合作支持：iOS、Android、Windows、macOS，具体请加QQ详谈</li>
-</ul>
+
 
       
 
